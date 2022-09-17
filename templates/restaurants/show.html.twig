@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <style>
+        body { background: no-repeat url({{ asset('img/background.jpg')}}); }
+        body {
+            background-size: auto;
+            background-position-x: right;
+            background-attachment: fixed;
+        }
+    </style>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ajouter un restaurant{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un Restaurant</h1>
+    {{ form_start(form) }}
+        {{ form_row(form) }}
+        <button type="submit">Submit</button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,18 @@
+Restaurants:
+    Id / Int
+    Name / String
+    Adresse / String
+    Numero / String
+    Menu Id / Relation
+
+Menu:
+    Id / Int
+    Name / String
+    Restaurant Id / Relation
+
+Plat:
+    Id / Int
+    Name / String
+    PrixP / Int
+    PrixG / Int
+    Menu Id / Relation
