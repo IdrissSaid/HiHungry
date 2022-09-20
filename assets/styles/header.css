@@ -1,0 +1,48 @@
+header {
+    z-index: 9999;
+    position: sticky            ;
+    width: 100%;
+    display: grid;
+    min-height: 8vh;
+    grid-template-columns: 10% 1fr 1fr 1fr 10%;
+    background: linear-gradient(to right, rgba(25,25,25,1), rgba(60,60,60));
+    color: white;
+    text-align: center;
+    align-items: center;
+}
+
+header #logo {
+    grid-column: 3;
+    user-select: none;
+    transition: color 0.5s;
+    z-index: 2;
+}
+
+header #logo:hover {
+    cursor: pointer;
+    color: darkcyan;
+}
+
+header #link {
+    color: white;
+    z-index: 2;
+    justify-self: center;
+    padding: 0 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background 0.5s;
+    transition: color 0.8s;
+}
+
+header #link:hover {
+    background: darkcyan;
+    color: black;
+}
+
+header #link.resto {
+    grid-column: 2;
+}
+
+header #link.about {
+    grid-column: 4;
+}

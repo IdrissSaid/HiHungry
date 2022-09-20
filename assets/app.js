@@ -7,10 +7,15 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/style.css';
+import './styles/header.css';
+import './styles/menu.css';
+import './styles/home.css';
+import './styles/resto.css';
 import './styles/fontawesome/css/all.css';
 
 // start the Stimulus application
 import './bootstrap';
+
 import './js/index.js';
 import './js/menu.js';
-import './js/scroll_event.js';
+import './js/scroll.js';

@@ -1,25 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <style>
-    body { background: no-repeat url({{ asset('img/resto.jpg') }}); }
-    body {
-        background-size: auto;
-        background-position-x: right;
-        background-attachment: fixed;
-    }
-    </style>
-    {% set i = 1 %}
-    {% for restaurant in restaurants %}
-        <div class="card {{ i }}" onclick='window.location.href = "{{ path("restaurant_show", {'id': restaurant.id}) }}"'>
-            <h1 id="title">{{ restaurant.name }}</h1>
-            {% if restaurant.image != null %}
-            <img id="card_img" src="{{ asset(restaurant.image) }}" alt="menu{{i}}">
-            {% else %}
-            <img id="card_img" src="{{ asset('img/ajout.png') }}" alt="menu{{i}}">
-            {% endif %}
-            <p id="desc">Adresse:<br>{{ restaurant.adresse }}<br><br>Numero:<br>{{ restaurant.numero }}</p>
+    <div class="filter"></div>
+    <section id="home">
+        <div class="typewriter">
+            <p>Un Site <label id="word">Original</label> Pour Commander Ton Repas <label id="word">Insolite</label>.</p>
         </div>
-        {% set i = i + 1 %}
-    {% endfor %}
+    </section>
+    <section id="resto">
+        <h3 id="swipe">SWIPE</h3>
+        <div class="container">
+            {% set i = 1 %}
+            {% for restaurant in restaurants %}
+                <div class="card {{ i }}" onclick='window.location.href = "{{ path("restaurant_show", {'id': restaurant.id}) }}"'>
+                    <h1 id="title">{{ restaurant.name }}</h1>
+                    {% if restaurant.image != null %}
+                    <img id="card_img" src="{{ asset(restaurant.image) }}" alt="menu{{i}}">
+                    {% else %}
+                    <img id="card_img" src="{{ asset('img/ajout.png') }}" alt="menu{{i}}">
+                    {% endif %}
+                    <p id="desc">Adresse:<br>{{ restaurant.adresse }}<br><br>Numero:<br>{{ restaurant.numero }}</p>
+                </div>
+                {% set i = i + 1 %}
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

@@ -1,0 +1,64 @@
+section#home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 88vh;
+    margin: auto;
+    background: url('../img/resto.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position-x: right;
+    transition: height 1s ease-in-out;
+}
+
+section#home.scroll {
+    height: 40vh;
+}
+
+section#home p {
+    margin: auto;
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+label#word::selection {
+    color: white;
+    background: darkcyan;
+}
+
+section#home p::selection {
+    color: black;
+    background: darkcyan;
+}
+
+.typewriter {
+    background: rgba(0,0,0,0.5);
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.typewriter p {
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden;
+    border-right: .15em solid darkcyan;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+        typing 4s steps(50, end),
+        blink-caret .9s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: darkcyan }
+}

@@ -1,10 +1,10 @@
-import { ScrollEvent } from "./scroll_event.js";
+import { scroll } from "./scroll.js";
 import { setList } from './menu.js';
 
 window.addEventListener("DOMContentLoaded", (event) => {
     console.log("DOM entièrement chargé et analysé");
-    document.addEventListener('scroll', (eventS) => {
-        ScrollEvent(eventS);
+    document.addEventListener('scroll', () => {
+        scroll();
     });
     document.getElementsByClassName('card 1')[0].addEventListener('click', (e) => {
         setList('La Cayenne');

@@ -1,13 +1,15 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <style>
-        body { background: no-repeat url({{ asset('img/background.jpg')}}); }
-        body {
-            background-size: auto;
-            background-position-x: right;
-            background-attachment: fixed;
-        }
-    </style>
-
+    <section class="page_menu">
+        {# <h1>Menu</h1> #}
+        <div class="card">
+            <h1 id='title'>{{ restaurant.name }}</h1>
+            <ul>
+                {% for plat in plats %}
+                    <li>{{ plat.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
 {% endblock %}

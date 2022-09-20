@@ -39,9 +39,13 @@ class RestaurantsController extends AbstractController
     {
         $em = $this->doctrine->getManager();
         $restaurant = $em->getRepository(Restaurant::class)->findById($id);
+        $menu = $restaurant[0]->getMenu();
+        $plats = $menu[0]->getPlats();
 
         return $this->render('restaurants/show.html.twig', [
-            'restaurant' => $restaurant
+            'restaurant' => $restaurant[0],
+            'menus' => $menu,
+            'plats' => $plats
         ]);
     }
 }
