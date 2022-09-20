@@ -3,13 +3,26 @@
 {% block body %}
     <section class="page_menu">
         {# <h1>Menu</h1> #}
-        <div class="card">
-            <h1 id='title'>{{ restaurant.name }}</h1>
-            <ul>
-                {% for plat in plats %}
-                    <li>{{ plat.name }}</li>
-                {% endfor %}
-            </ul>
+        <h1 id='title'>{{ restaurant.name }}</h1>
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prix Petit</th>
+                        <th>Prix Grand</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for plat in plats %}
+                    <tr>
+                        <th>{{ plat.name }}</th>
+                        {% if plat.prix1 != -1 %}<td><a id='price' href="#">{{ plat.prix1 }}</a></td>{% else %}<td style='border-radius: 15px; background: black;'></td>{% endif %}
+                        {% if plat.prix2 != -1 %}<td><a id='price' href="#">{{ plat.prix2 }}</a></td>{% else %}<td style='border-radius: 15px; background: black;'></td>{% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </section>
 {% endblock %}

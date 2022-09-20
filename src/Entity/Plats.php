@@ -17,10 +17,10 @@ class Plats
     private ?string $name = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $prix1 = null;
+    private ?float $prix1 = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $prix2 = null;
+    private ?float $prix2 = null;
 
     #[ORM\ManyToOne(inversedBy: 'plats')]
     #[ORM\JoinColumn(nullable: false)]
@@ -43,24 +43,24 @@ class Plats
         return $this;
     }
 
-    public function getPrix1(): ?int
+    public function getPrix1(): ?float
     {
         return $this->prix1;
     }
 
-    public function setPrix1(?int $prix1): self
+    public function setPrix1(?float $prix1): self
     {
         $this->prix1 = $prix1;
 
         return $this;
     }
 
-    public function getPrix2(): ?int
+    public function getPrix2(): ?float
     {
         return $this->prix2;
     }
 
-    public function setPrix2(?int $prix2): self
+    public function setPrix2(?float $prix2): self
     {
         $this->prix2 = $prix2;
 

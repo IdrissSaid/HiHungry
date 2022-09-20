@@ -10,3 +10,25 @@
 .page_menu #title {
     margin: 20px;
 }
+
+.page_menu #price {
+    padding: 0 20%;
+    text-decoration: none;
+    color: black;
+    border-radius: 15px;
+    width: 100px;
+}
+
+.page_menu #price:hover {
+    color: goldenrod;
+    background: darkcyan;
+    cursor: pointer;
+}
+
+.table {
+    width: 60%;
+}
+
+table {
+    width: 100%;
+}
