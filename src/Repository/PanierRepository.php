@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Plats;
+use App\Entity\Panier;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Plats>
+ * @extends ServiceEntityRepository<Panier>
  *
- * @method Plats|null find($id, $lockMode = null, $lockVersion = null)
- * @method Plats|null findOneBy(array $criteria, array $orderBy = null)
- * @method Plats[]    findAll()
- * @method Plats[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Panier|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Panier|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Panier[]    findAll()
+ * @method Panier[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PlatsRepository extends ServiceEntityRepository
+class PanierRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Plats::class);
+        parent::__construct($registry, Panier::class);
     }
 
-    public function add(Plats $entity, bool $flush = false): void
+    public function add(Panier $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class PlatsRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Plats $entity, bool $flush = false): void
+    public function remove(Panier $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -38,16 +38,18 @@ class PlatsRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-    public function findByMenuId(int $id)
+
+    public function findAll()
     {
         return $this->getEntityManager()->createQuery(
             'SELECT p
-            FROM App\Entity\Plats p
-            WHERE p.menu =' . $id .'
-            ORDER BY p.id ASC') ->getResult();
+            FROM App\Entity\Panier p
+            ORDER BY p.id ASC'
+            ) -> getResult();
     }
+
 //    /**
-//     * @return Plats[] Returns an array of Plats objects
+//     * @return Panier[] Returns an array of Panier objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -61,7 +63,7 @@ class PlatsRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Plats
+//    public function findOneBySomeField($value): ?Panier
 //    {
 //        return $this->createQueryBuilder('p')
 //            ->andWhere('p.exampleField = :val')

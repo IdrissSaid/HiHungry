@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Panier;
+use App\Entity\Plats;
 use App\Entity\Restaurant;
 use App\Form\RestaurantType;
 use Doctrine\Persistence\ManagerRegistry;
@@ -39,13 +41,29 @@ class RestaurantsController extends AbstractController
     {
         $em = $this->doctrine->getManager();
         $restaurant = $em->getRepository(Restaurant::class)->findById($id);
+        $panier = $em->getRepository(Panier::class)->findAll()[0];
+        $panierP = $panier->getPlats();
         $menu = $restaurant[0]->getMenu();
-        $plats = $menu[0]->getPlats();
+        $plats = $em->getRepository(Plats::class)->findByMenuId(2);
 
         return $this->render('restaurants/show.html.twig', [
             'restaurant' => $restaurant[0],
             'menus' => $menu,
-            'plats' => $plats
+            'plats' => $plats,
+            'panier' => $panierP
         ]);
+    }
+
+    #[Route('/panier/add/{id}', name:'add_plat_panier', methods:['GET', 'POST'])]
+    public function addPlatInPanier(Plats $plat, Request $request)
+    {
+        $em = $this->doctrine->getManager();
+        $panier = $em->getRepository(Panier::class)->findAll()[0];
+        $plat->setQuantity($plat->getQuantity() + 1);
+        $panier->addPlat($plat);
+        $em->persist($panier);
+        $em->flush();
+        $route = $request->headers->get('referer');
+        return $this->redirect($route);
     }
 }

@@ -1,14 +1,12 @@
 .page_menu {
-    display: flex;
+    padding: 10% 0;
     background: rgba(255, 228, 196);
-    height: 92vh;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    height: 92vh;
 }
 
 .page_menu #title {
-    margin: 20px;
+    margin-bottom: 20px;
 }
 
 .page_menu #price {
@@ -26,6 +24,7 @@
 }
 
 .table {
+    margin: 20px auto;
     width: 60%;
 }
 

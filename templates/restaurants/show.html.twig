@@ -1,28 +1,34 @@
 {% extends "base.html.twig" %}
-
 {% block body %}
-    <section class="page_menu">
-        {# <h1>Menu</h1> #}
-        <h1 id='title'>{{ restaurant.name }}</h1>
-        <div class="table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prix Petit</th>
-                        <th>Prix Grand</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for plat in plats %}
-                    <tr>
-                        <th>{{ plat.name }}</th>
-                        {% if plat.prix1 != -1 %}<td><a id='price' href="#">{{ plat.prix1 }}</a></td>{% else %}<td style='border-radius: 15px; background: black;'></td>{% endif %}
-                        {% if plat.prix2 != -1 %}<td><a id='price' href="#">{{ plat.prix2 }}</a></td>{% else %}<td style='border-radius: 15px; background: black;'></td>{% endif %}
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+<section class="page_menu">
+    <h1 id='title'>{{ restaurant.name }}</h1>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Petit</th>
+                    <th>Grand</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plat in plats %}
+                <tr>
+                    <th>{{ plat.name }}</th>
+                    {% if plat.prix1 != -1 %}<td><a id='price' href="{{path('add_plat_panier', {id : plat.id})}}">{{ plat.prix1 }}€</a></td>{% else %}<td style='border-radius: 15px; background: black;'></td>{% endif %}
+                    {% if plat.prix2 != -1 %}<td><a id='price' href="{{path('add_plat_panier', {id : plat.id})}}">{{ plat.prix2 }}€</a></td>{% else %}<td style='border-radius: 15px; background: black;'></td>{% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="panier">
+        <h1>Panier</h1>
+        {% for item in panier %}
+            <p>{{item.name}} <strong>x{{item.quantity}}</strong></p>
+            {% else %}
+                <p>Aucun Plat.</p>
+        {% endfor %}
+    </div>
     </section>
 {% endblock %}

@@ -38,7 +38,6 @@ class MenuRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
 //    /**
 //     * @return Menu[] Returns an array of Menu objects
 //     */

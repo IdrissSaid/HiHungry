@@ -84,7 +84,6 @@ class Menu
                 $plat->setMenu(null);
             }
         }
-
         return $this;
     }
 }
