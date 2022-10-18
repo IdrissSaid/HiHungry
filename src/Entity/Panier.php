@@ -16,7 +16,11 @@ class Panier
     private ?int $id = null;
 
     #[ORM\ManyToMany(targetEntity: Plats::class, inversedBy: 'paniers')]
+    #[ORM\JoinTable(name:'plats_groups')]
     private Collection $plats;
+
+    #[ORM\Column]
+    private ?bool $confirm = null;
 
     public function __construct()
     {
@@ -48,6 +52,18 @@ class Panier
     public function removePlat(Plats $plat): self
     {
         $this->plats->removeElement($plat);
+
+        return $this;
+    }
+
+    public function isConfirm(): ?bool
+    {
+        return $this->confirm;
+    }
+
+    public function setConfirm(bool $confirm): self
+    {
+        $this->confirm = $confirm;
 
         return $this;
     }

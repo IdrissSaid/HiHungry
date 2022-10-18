@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Restaurant;
-use App\Form\CardType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

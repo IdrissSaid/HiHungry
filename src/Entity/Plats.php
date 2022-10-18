@@ -34,6 +34,9 @@ class Plats
     #[ORM\Column(nullable: true)]
     private ?int $quantity = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $quantity_small = null;
+
     public function __construct()
     {
         $this->paniers = new ArrayCollection();
@@ -131,6 +134,18 @@ class Plats
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getQuantitySmall(): ?int
+    {
+        return $this->quantity_small;
+    }
+
+    public function setQuantitySmall(?int $quantity_small): self
+    {
+        $this->quantity_small = $quantity_small;
 
         return $this;
     }

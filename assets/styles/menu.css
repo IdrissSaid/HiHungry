@@ -23,11 +23,17 @@
     cursor: pointer;
 }
 
-.table {
-    margin: 20px auto;
-    width: 60%;
+#remove {
+    margin: 0 10px;
+    padding: 0 10px;
+    background: rgb(175, 28, 28);
+    border-radius: 15px;
+    transition: color 0.3s;
+    text-decoration: none;
+    color: black;
 }
 
-table {
-    width: 100%;
+#remove:hover {
+    cursor: pointer;
+    color: white;
 }

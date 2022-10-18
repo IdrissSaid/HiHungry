@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 25px;
 }
 
@@ -12,9 +12,29 @@ section .filter {
     z-index: 1;
     height: 100%;
     width: 100%;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 label#word {
     color: darkgoldenrod;
+}
+
+.btn {
+    margin: 20px 0;
+}
+
+.btn a {
+    padding: 5px 10px;
+    background: rgb(86, 85, 85);
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.5s;
+    transition: color 0.8s;
+}
+
+.btn a:hover {
+    background: darkcyan;
+    color: black;
+    cursor: pointer;
 }

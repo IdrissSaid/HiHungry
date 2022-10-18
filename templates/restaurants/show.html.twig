@@ -15,8 +15,8 @@
                 {% for plat in plats %}
                 <tr>
                     <th>{{ plat.name }}</th>
-                    {% if plat.prix1 != -1 %}<td><a id='price' href="{{path('add_plat_panier', {id : plat.id})}}">{{ plat.prix1 }}€</a></td>{% else %}<td style='border-radius: 15px; background: black;'></td>{% endif %}
-                    {% if plat.prix2 != -1 %}<td><a id='price' href="{{path('add_plat_panier', {id : plat.id})}}">{{ plat.prix2 }}€</a></td>{% else %}<td style='border-radius: 15px; background: black;'></td>{% endif %}
+                    {% if plat.prix1 != -1 %}<td><a id='price' href="{{path('cart_add', {id : plat.id})}}">{{ plat.prix1 }}€</a></td>{% else %}<td style='border-radius: 15px; background: black;'></td>{% endif %}
+                    {% if plat.prix2 != -1 %}<td><a id='price' href="{{path('cart_add', {id : plat.id})}}">{{ plat.prix2 }}€</a></td>{% else %}<td style='border-radius: 15px; background: black;'></td>{% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
@@ -25,10 +25,14 @@
     <div class="panier">
         <h1>Panier</h1>
         {% for item in panier %}
-            <p>{{item.name}} <strong>x{{item.quantity}}</strong></p>
+            <p>{{item.name}} <strong>P x{{item.quantitySmall}}</strong><a id='remove' href='{{path('remove_small_plat_panier', {id: item.id})}}'>-</a><strong>G x{{item.quantity}}</strong><a id='remove' href='{{path('remove_plat_panier', {id: item.id})}}'>-</a></p>
             {% else %}
                 <p>Aucun Plat.</p>
         {% endfor %}
+        <div class="btn">
+            <a href='{{ path('app_home') }}'>Continuer</a>
+            <a href='{{ path('confirm_panier', {'id': panie.id}) }}'>Finir Ici</a>
+        </div>
     </div>
     </section>
 {% endblock %}
